@@ -29,7 +29,8 @@ Rules:
 - Express uncertainty in the confidence score rather than inventing details`
 
 /**
- * Runs the Text Agent against extracted document text.
+ * Runs the Text Agent against a document buffer.
+ * Sends the file directly to Gemini as inline base64 data — no pdf-parse needed.
  * Uses Gemini 1.5 Flash (free tier: 15 req/min).
  *
  * Returns a fully validated ExtractionPayload or throws on failure.
@@ -37,7 +38,8 @@ Rules:
 export async function runTextAgent(
   sourceId: string,
   projectId: string,
-  text: string
+  buffer: Buffer,
+  mimeType: string
 ): Promise<ExtractionPayload> {
   if (!process.env.GEMINI_API_KEY) {
     throw new Error('GEMINI_API_KEY is not set')
@@ -49,10 +51,16 @@ export async function runTextAgent(
     systemInstruction: SYSTEM_PROMPT,
   })
 
-  // Truncate to ~30k chars to stay within free tier context limits
-  const truncated = text.length > 30000 ? text.slice(0, 30000) + '\n\n[Document truncated]' : text
-
-  const result = await model.generateContent(truncated)
+  // Send the file as inline base64 data — Gemini 1.5 Flash natively reads PDFs and plain text
+  const result = await model.generateContent([
+    {
+      inlineData: {
+        mimeType,
+        data: buffer.toString('base64'),
+      },
+    },
+    'Extract structured research data from this document according to the schema in your instructions.',
+  ])
   const raw = result.response.text().trim()
 
   // Strip markdown code fences if the model wraps the JSON
