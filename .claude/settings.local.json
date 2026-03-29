@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --no-turbopack)",
+      "Bash(npm --version)",
+      "Bash(/Users/mahanyas/Library/Caches/ms-playwright-go/1.50.1/node --version)",
+      "Read(//Users/mahanyas/Library/Caches/ms-playwright-go/1.50.1/**)",
+      "Bash(/opt/homebrew/bin/brew --version)",
+      "Bash(export NVM_DIR=\"$HOME/.nvm\")",
+      "Bash(. \"$NVM_DIR/nvm.sh\")",
+      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --no-turbopack --yes)",
+      "Read(//private/tmp/**)",
+      "Bash(npx create-next-app@latest oars-temp --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --no-turbopack --yes)",
+      "Bash(cp:*)",
+      "Bash(cd:*)",
+      "Bash(rm -rf node_modules)",
+      "Bash(npm install:*)",
+      "Bash(npm run:*)",
+      "Bash(npx shadcn@latest init --defaults)"
+    ]
+  }
+}
