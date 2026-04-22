@@ -23,6 +23,7 @@ export default async function ProjectPage({
   if (!project) notFound()
 
   const sources = await getSourcesByProjectId(projectId)
+  const readySources = sources.filter((s) => s.status === 'ready')
 
   return (
     <div className="space-y-8">
@@ -42,6 +43,25 @@ export default async function ProjectPage({
         </div>
         <UploadDialog projectId={project.id} />
       </div>
+
+      {readySources.length > 0 && (
+        <div className="rounded-xl border border-primary/30 bg-primary/5 px-5 py-4 flex items-center justify-between gap-4">
+          <div>
+            <p className="text-sm font-medium text-primary">
+              {readySources.length} source{readySources.length !== 1 ? 's' : ''} ready for brain encoding
+            </p>
+            <p className="text-xs text-muted-foreground mt-0.5">
+              Click Analyze on any source below, then view your results in the Neural tab.
+            </p>
+          </div>
+          <Link
+            href={`/dashboard/projects/${projectId}/neuro`}
+            className="shrink-0 inline-flex items-center gap-1.5 rounded-lg bg-primary px-4 py-2 text-xs font-semibold text-primary-foreground hover:bg-primary/85 transition-all hover:shadow-[0_0_16px_hsla(24,95%,53%,0.35)]"
+          >
+            🧠 View Brain Results
+          </Link>
+        </div>
+      )}
 
       <div className="flex gap-4 border-b border-border pb-2">
         <Link

@@ -48,21 +48,33 @@ export function NewProjectForm() {
   }
 
   if (!open) {
-    return <Button onClick={() => setOpen(true)}>New project</Button>
+    return (
+      <Button
+        onClick={() => setOpen(true)}
+        className="bg-primary text-primary-foreground hover:bg-primary/85"
+      >
+        + New Analysis
+      </Button>
+    )
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
-      <div className="bg-background rounded-lg border shadow-lg w-full max-w-md p-6">
-        <h2 className="font-semibold text-lg mb-4">New project</h2>
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
+      <div className="bg-card rounded-xl border border-border shadow-2xl w-full max-w-md p-6">
+        <h2 className="font-semibold text-lg mb-1 flex items-center gap-2">🧠 New Analysis</h2>
+        <p className="text-muted-foreground text-sm mb-5">
+          Give your analysis a name — you can upload content and run brain encoding after.
+        </p>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-1.5">
             <Label htmlFor="name">Name</Label>
-            <Input id="name" name="name" placeholder="e.g. Q4 Earnings Investigation" required />
+            <Input id="name" name="name" placeholder="e.g. Film trailer emotional analysis" required />
           </div>
           <div className="space-y-1.5">
-            <Label htmlFor="description">Description <span className="text-muted-foreground">(optional)</span></Label>
-            <Input id="description" name="description" placeholder="What is this research about?" />
+            <Label htmlFor="description">
+              Description <span className="text-muted-foreground">(optional)</span>
+            </Label>
+            <Input id="description" name="description" placeholder="What content are you analyzing?" />
           </div>
           {state.status === 'error' && (
             <p className="text-sm text-destructive">{state.message}</p>
@@ -75,8 +87,12 @@ export function NewProjectForm() {
             >
               Cancel
             </Button>
-            <Button type="submit" disabled={state.status === 'loading'}>
-              {state.status === 'loading' ? 'Creating…' : 'Create project'}
+            <Button
+              type="submit"
+              disabled={state.status === 'loading'}
+              className="bg-primary text-primary-foreground hover:bg-primary/85"
+            >
+              {state.status === 'loading' ? 'Creating…' : 'Create analysis'}
             </Button>
           </div>
         </form>
