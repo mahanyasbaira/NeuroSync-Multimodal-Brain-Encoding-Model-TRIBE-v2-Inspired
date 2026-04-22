@@ -30,7 +30,7 @@ export async function getProjectOwnerEmail(projectId: string): Promise<string | 
     .single()
 
   if (error || !data) return null
-  const users = (data as { users: { email: string } | null }).users
+  const users = (data as unknown as { users: { email: string } | null }).users
   return users?.email ?? null
 }
 
