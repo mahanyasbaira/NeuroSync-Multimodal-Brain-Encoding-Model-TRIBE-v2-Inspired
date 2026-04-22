@@ -8,8 +8,10 @@ export default async function DashboardLayout({ children }: { children: React.Re
 
   return (
     <div className="min-h-screen flex flex-col">
-      <header className="border-b px-6 py-3 flex items-center justify-between">
-        <span className="font-semibold tracking-tight">OARS</span>
+      <header className="border-b border-border/50 bg-background/80 backdrop-blur-md px-6 py-3 flex items-center justify-between sticky top-0 z-10">
+        <span className="font-semibold tracking-tight flex items-center gap-2">
+          🧠 <span className="text-primary">NeuroSync</span>
+        </span>
         <UserButton />
       </header>
       <main className="flex-1 p-6 max-w-5xl mx-auto w-full">{children}</main>

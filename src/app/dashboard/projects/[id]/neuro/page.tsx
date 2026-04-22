@@ -28,7 +28,7 @@ export default async function NeuroPage({
       <div>
         <div className="flex items-center gap-2 text-sm text-muted-foreground mb-1">
           <Link href="/dashboard" className="hover:text-foreground transition-colors">
-            Projects
+            Analyses
           </Link>
           <span>/</span>
           <Link
@@ -38,15 +38,21 @@ export default async function NeuroPage({
             {project.name}
           </Link>
           <span>/</span>
-          <span>Neural</span>
+          <span className="text-primary">Neural</span>
         </div>
-        <h1 className="text-2xl font-bold tracking-tight">{project.name}</h1>
+        <h1 className="text-2xl font-bold tracking-tight">Brain Encoding Analysis</h1>
         <p className="text-muted-foreground text-sm mt-1">
-          Brain encoding predictions via TRIBE v2 (Meta FAIR)
+          Cortical activation predictions via Meta TRIBE v2 — {project.name}
         </p>
       </div>
 
-      <div className="flex gap-4 border-b pb-2">
+      <div className="flex gap-4 border-b border-border pb-2">
+        <Link
+          href={`/dashboard/projects/${projectId}/neuro`}
+          className="text-sm font-semibold text-primary border-b-2 border-primary pb-2 -mb-[9px] flex items-center gap-1"
+        >
+          🧠 Neural
+        </Link>
         <Link
           href={`/dashboard/projects/${projectId}`}
           className="text-sm text-muted-foreground hover:text-foreground transition-colors pb-2"
@@ -64,12 +70,6 @@ export default async function NeuroPage({
           className="text-sm text-muted-foreground hover:text-foreground transition-colors pb-2"
         >
           Report
-        </Link>
-        <Link
-          href={`/dashboard/projects/${projectId}/neuro`}
-          className="text-sm font-medium border-b-2 border-foreground pb-2 -mb-[9px]"
-        >
-          Neural
         </Link>
       </div>
 

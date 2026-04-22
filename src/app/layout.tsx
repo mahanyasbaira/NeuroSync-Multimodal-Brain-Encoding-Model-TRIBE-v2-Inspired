@@ -14,14 +14,14 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'OARS — Omnimodal Autonomous Research System',
-  description: 'Multi-agent research platform for processing text, audio, and video sources.',
+  title: 'NeuroSync — Multimodal Brain Encoding',
+  description: 'Upload any video, audio, or text. See which parts of the brain activate and what that reveals about its emotional content.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <ClerkProvider>
-      <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
+      <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased dark`}>
         <body className="min-h-full bg-background text-foreground">{children}</body>
       </html>
     </ClerkProvider>

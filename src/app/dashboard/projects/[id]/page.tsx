@@ -30,7 +30,7 @@ export default async function ProjectPage({
         <div>
           <div className="flex items-center gap-2 text-sm text-muted-foreground mb-1">
             <Link href="/dashboard" className="hover:text-foreground transition-colors">
-              Projects
+              Analyses
             </Link>
             <span>/</span>
             <span>{project.name}</span>
@@ -43,10 +43,16 @@ export default async function ProjectPage({
         <UploadDialog projectId={project.id} />
       </div>
 
-      <div className="flex gap-4 border-b pb-2">
+      <div className="flex gap-4 border-b border-border pb-2">
+        <Link
+          href={`/dashboard/projects/${projectId}/neuro`}
+          className="text-sm font-semibold text-primary border-b-2 border-primary pb-2 -mb-[9px] flex items-center gap-1"
+        >
+          🧠 Neural
+        </Link>
         <Link
           href={`/dashboard/projects/${projectId}`}
-          className="text-sm font-medium border-b-2 border-foreground pb-2 -mb-[9px]"
+          className="text-sm text-muted-foreground hover:text-foreground transition-colors pb-2"
         >
           Sources
         </Link>
@@ -61,12 +67,6 @@ export default async function ProjectPage({
           className="text-sm text-muted-foreground hover:text-foreground transition-colors pb-2"
         >
           Report
-        </Link>
-        <Link
-          href={`/dashboard/projects/${projectId}/neuro`}
-          className="text-sm text-muted-foreground hover:text-foreground transition-colors pb-2"
-        >
-          Neural
         </Link>
       </div>
 
