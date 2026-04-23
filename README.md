@@ -6,11 +6,19 @@
 
 *Upload any video, audio, or text. Predict which parts of the brain activate. Understand what that means emotionally.*
 
+[![Live Demo](https://img.shields.io/badge/demo-live-brightgreen?style=for-the-badge&logo=vercel)](https://neurosync-tribe-v2.vercel.app)
+
 ![Status](https://img.shields.io/badge/status-active-brightgreen)
 ![Next.js](https://img.shields.io/badge/Next.js-16-black)
 ![Python](https://img.shields.io/badge/Python-3.10+-blue)
 ![TRIBE v2](https://img.shields.io/badge/TRIBE_v2-Meta_FAIR-orange)
 ![License](https://img.shields.io/badge/license-MIT-lightgrey)
+
+**🔗 [neurosync-tribe-v2.vercel.app](https://neurosync-tribe-v2.vercel.app)**
+
+<br/>
+
+![NeuroSync Demo](./public/demo.gif)
 
 </div>
 
