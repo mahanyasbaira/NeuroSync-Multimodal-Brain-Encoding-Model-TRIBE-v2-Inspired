@@ -296,11 +296,6 @@ Tests cover: landing page rendering, auth redirect guards, API 401 guards on all
 
 ---
 
-## License
-
-MIT — see [LICENSE](LICENSE) for details.
-
----
 
 <div align="center">
 
